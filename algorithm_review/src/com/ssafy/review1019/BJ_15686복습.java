@@ -1,0 +1,73 @@
+package com.ssafy.review1019;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+public class BJ_15686복습 {
+	static int[] selected;
+	static int N, M;
+	static int[][] map;
+	static int min;
+	static ArrayList<Point> house;
+	static ArrayList<Point> chicken;
+	
+	static class Point{
+		int r, c;
+		public Point(int r, int c) {
+			this.r = r;
+			this.c = c;
+		}		
+	}
+	
+	
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		selected = new int[M];
+		map = new int[N][N];
+		min = Integer.MAX_VALUE;
+		
+		for(int r=0; r<N; r++) {
+			st = new StringTokenizer(br.readLine());
+			for(int c=0; c<N; c++) {
+				map[r][c] = Integer.parseInt(st.nextToken());
+				
+				if(map[r][c] == 1) {
+					house.add(new Point(r, c));
+				}
+				if(map[r][c] == 2) {
+					chicken.add((new Point(r,c)));
+				}
+				
+			}
+		}
+		
+		
+		
+		
+	}
+	static void dfs(int cnt, int start) {
+		if(cnt == M) {
+			
+			return;
+		}
+	}
+	
+	static void calc() {
+		int sum = 0;
+		for(int i=0; i<house.size(); i++) {
+			int temp = 0;
+			Point p = house.get(i);
+			for(int j=0; j<selected.length; j++) {
+				Point p2 = chicken.get(j);
+				temp = Math.abs(p.r-p2.r) + Math.abs(p.c-p2.c);
+			}
+		}
+	}
+	
+	
+}
