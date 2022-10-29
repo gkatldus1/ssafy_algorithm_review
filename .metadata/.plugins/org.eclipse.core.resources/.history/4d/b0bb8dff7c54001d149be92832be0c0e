@@ -1,0 +1,31 @@
+package com.ssafy.review1025;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class BJ_1759복습 {
+	static char[] selected;
+	static char[] chars;
+	static StringBuilder sb = new StringBuilder();
+	static int L, C;
+	static String vo = "aeiou";
+	
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		L = Integer.parseInt(st.nextToken());
+		C = Integer.parseInt(st.nextToken());
+		selected = new char[L];
+		chars = new char[C];
+		st = new StringTokenizer(br.readLine());
+		for(int i=0; i<C; i++) {
+			chars[i] = st.nextToken().charAt(0);
+		}
+		System.out.println(Arrays.toString(chars));
+		
+		
+	}
+	
+}
