@@ -32,7 +32,6 @@ public class BJ_1992 {
 	
 	static void district(int r, int c, int size) {
 		if(isPossible(r, c, size)) {
-			
 			return;
 		}
 		int sep = size/2;
