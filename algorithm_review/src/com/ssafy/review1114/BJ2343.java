@@ -1,4 +1,4 @@
-package com.ssafy.algorithm1114;
+package com.ssafy.review1114;
 
 import java.util.Scanner;
 
