@@ -1,0 +1,68 @@
+package com.ssafy.review0226;
+import java.util.*;
+
+public class Dongbin_11_6 {
+
+	static class Food implements Comparable<Food>{
+		private int time;
+		private int index;
+		
+		public Food(int time, int index) {
+			this.time = time;
+			this.index = index;
+		}
+		
+		public int getTime() {
+			return this.time;
+		}
+		
+		public int getIndex() {
+			return this.index;
+		}
+		
+		@Override
+		public int compareTo(Food other) {
+			return Integer.compare(this.time, other.time);
+		}
+	}
+		
+	class Solution{
+		public int solution(int[] food_times, long k) {
+			long summary = 0;
+			for(int i=0; i<food_times.length; i++) {
+				summary += food_times[i];
+			}
+			if(summary <= k)	return -1;
+			
+			PriorityQueue<Food> pq = new PriorityQueue<>();
+			for(int i=0; i<food_times.length; i++) {
+				pq.offer(new Food(food_times[i], i+1));
+			}
+			
+			summary = 0;	//먹기 위해 사용한 시간
+			long previous = 0; //직전에 다 먹은 음식 시간
+			long length = food_times.length; //남은 음식의 개수
+
+			while(summary + ((pq.peek().getTime() - previous)* length) <= k) {
+				int now = pq.poll().getTime();
+				summary += (now - previous) * length;
+				length -= 1;
+				previous = now;
+			}
+			ArrayList<Food> result = new ArrayList<>();
+			while(!pq.isEmpty()) {
+				result.add(pq.poll());
+			}
+			Collections.sort(result, new Comparator<Food>() {
+				@Override
+				public int compare(Food a, Food b) {
+					return Integer.compare(a.getIndex(), b.getIndex());
+				}
+			});
+			return result.get((int)((k-summary)%length)).getIndex();
+		}
+	}
+		
+		
+	
+}

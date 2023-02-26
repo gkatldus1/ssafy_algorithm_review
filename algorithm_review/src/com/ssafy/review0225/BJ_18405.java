@@ -96,13 +96,4 @@ public class BJ_18405 {
 		System.out.println(graph[targetX-1][targetY-1]);
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
