@@ -52,8 +52,8 @@ public class BJ_18428 {
 			
 			if(target == n)	return;
 			now[index] = target;
-			combination(arr, depth+1, index+1, target+1);
-			combination(arr, depth, index, target+1);
+			combination(arr, depth+1, index+1, target+1);//선택했을때
+			combination(arr, depth, index, target+1);// 선택하지 않았을때
 		}
 	}
 	
