@@ -64,7 +64,7 @@ public class Dongbin_14 {
 				for(int i=0; i<distList.size(); i++) {
 					int cnt = 1;
 					int position = weakList.get(start) + distList.get(i).get(cnt-1);
-					for(int index = start; index < start + weak.length; index++) {
+					for(int index = start+1; index < start + weak.length; index++) {
 						if(position < weakList.get(index)) {
 							cnt += 1;
 							if(cnt > dist.length) {
