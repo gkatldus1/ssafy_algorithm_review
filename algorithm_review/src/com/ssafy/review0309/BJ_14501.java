@@ -30,6 +30,9 @@ public class BJ_14501 {
 			}
 			else dp[i] = maxValue;
 		}
+//		for(int i=0; i<=n; i++) {
+//			System.out.println(dp[i]);
+//		}
 		System.out.println(maxValue);
 		
 	}
