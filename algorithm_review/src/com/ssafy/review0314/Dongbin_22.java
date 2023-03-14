@@ -82,7 +82,7 @@ public class Dongbin_22 {
 		visited.add(pos);
 		while(!q.isEmpty()) {
 			pos = q.poll();
-			if(pos.pos1X == n && pos.pos1Y==n && pos.pos2X==n && pos.pos2Y==n) {
+			if((pos.pos1X == n && pos.pos1Y==n) || (pos.pos2X==n && pos.pos2Y==n)) {
 				return pos.distance;
 			}
 			ArrayList<Node> nextPos = getNextPos(pos, newBoard);
