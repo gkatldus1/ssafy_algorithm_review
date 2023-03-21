@@ -71,7 +71,7 @@ public class Dongbin_40 {
 			st = new StringTokenizer(br.readLine());
 			int a = Integer.parseInt(st.nextToken());
 			int b = Integer.parseInt(st.nextToken());
-			graph.get(a).add(new Node(b,1));
+			graph.get(a).add(new Node(b, 1));
 			graph.get(b).add(new Node(a, 1));
 		}
 		
