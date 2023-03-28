@@ -26,7 +26,7 @@ public class BJ_2887 {
 	        return this.y;
 	    }
 
-	    // x가 거리, y가 번호 => 거리가 같다면 번호가 낮은 순으로 정
+	    // x가 거리, y가 번호 => 거리가 같다면 번호가 낮은 순으로 정렬
 	    @Override
 	    public int compareTo(Position other) {
 	        if (this.x == other.x) {
