@@ -13,9 +13,9 @@ public class BJ_2110 {
 		int c = Integer.parseInt(st.nextToken());
 		
 		ArrayList<Integer> arr = new ArrayList<>();
-		st = new StringTokenizer(br.readLine());
+//		st = new StringTokenizer(br.readLine());
 		for(int i=0; i<n; i++) {
-			arr.add(Integer.parseInt(st.nextToken()));
+			arr.add(Integer.parseInt(br.readLine()));
 		}
 		Collections.sort(arr);
 		
