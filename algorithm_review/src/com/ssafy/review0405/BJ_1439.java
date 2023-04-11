@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
 
+
 public class BJ_1439 {
 	public static String str;
 	public static int count0 = 0;
@@ -22,8 +23,5 @@ public class BJ_1439 {
 			}
 		}
 		System.out.println(Math.min(count0, count1));
-		
 	}
-	
-	
 }
