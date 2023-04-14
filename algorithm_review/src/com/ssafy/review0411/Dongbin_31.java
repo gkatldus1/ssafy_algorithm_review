@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class BJ_31 {
+public class Dongbin_31 {
 	static int testCase, n, m;
 	static int[][] arr = new int[20][20];
 	static int[][] dp = new int[20][20];
@@ -39,6 +39,7 @@ public class BJ_31 {
 					
 					if(i==n-1) leftDown = 0;
 					else leftDown = dp[i+1][j-1];
+					
 					left = dp[i][j-1];
 					dp[i][j] = dp[i][j] + Math.max(left, Math.max(leftUp, leftDown));
 				}
@@ -48,8 +49,6 @@ public class BJ_31 {
 				result = Math.max(result, dp[i][m-1]);
 			}
 			System.out.println(result);
-			
-			
 		}
 	}
 }
