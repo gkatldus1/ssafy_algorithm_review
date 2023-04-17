@@ -21,7 +21,7 @@ public class BJ_18353 {
 			v.add(Integer.parseInt(st.nextToken()));
 		}
 		
-		Collections.reverse(v);
+//		Collections.reverse(v);
 		
 		for(int i=0; i<n; i++) {
 			dp[i] = 1;
@@ -29,7 +29,7 @@ public class BJ_18353 {
 		
 		for(int i=1; i<n; i++) {
 			for(int j=0; j<i; j++) {
-				if(v.get(j) < v.get(i)) {
+				if(v.get(j) > v.get(i)) {
 					dp[i] = Math.max(dp[i], dp[j]+1);
 				}
 			}
@@ -40,7 +40,5 @@ public class BJ_18353 {
 			maxValue = Math.max(maxValue, dp[i]);
 		}
 		System.out.println(n - maxValue);
-		
 	}
-	
 }
