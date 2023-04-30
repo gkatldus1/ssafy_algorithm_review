@@ -40,6 +40,4 @@ public class Dongbin_42 {
 		}
 		System.out.println(result);
 	}
-	
-	
 }
