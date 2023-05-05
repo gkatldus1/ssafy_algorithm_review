@@ -31,12 +31,12 @@ public class Dongbin_12 {
 		public int compareTo(Node other) {
 			if(this.x == other.x && this.y == other.y){
 				return Integer.compare(this.stuff, other.stuff);
-		}
-		if(this.x == other.x) {
-			return Integer.compare(this.y, other.y);
-		}
-		return Integer.compare(this.x, other.x);
-			
+			}
+			if(this.x == other.x) {
+				return Integer.compare(this.y, other.y);
+			}
+			return Integer.compare(this.x, other.x);
+				
 		}
 	}
 	
@@ -48,17 +48,23 @@ public class Dongbin_12 {
 			if(stuff == 0) {	//설치된 것이 기둥인 경우
 				boolean check = false;
 				//바닥 위이면 정상
-				if(y==0)	check = true;
+				if(y==0) {
+					check = true;
+					continue;
+				}
 				//보의 한 쪽 끝 부분 위 혹은 다른 기둥 위 라면 정상
 				for(int j=0; j<answer.size(); j++) {
 					if(x-1 == answer.get(j).get(0) && y == answer.get(j).get(1) && 1 == answer.get(j).get(2)) {
 						check = true;
+						break;
 					}
 					if(x == answer.get(j).get(0) && y == answer.get(j).get(1) && 1 == answer.get(j).get(2)) {
 						check = true;
+						break;
 					}
 					if(x == answer.get(j).get(0) && y-1 == answer.get(j).get(1) && 0 == answer.get(j).get(2)) {
 						check = true;
+						break;
 					}
 				}
 				if(!check)	return false;
@@ -71,9 +77,11 @@ public class Dongbin_12 {
 				for(int j=0; j<answer.size(); j++) {
 					if(x == answer.get(j).get(0) && y-1 == answer.get(j).get(1) && 0 == answer.get(j).get(2)) {
 						check = true;
+						break;
 					}
 					if(x+1 == answer.get(j).get(0) && y - 1 == answer.get(j).get(1) && 0 == answer.get(j).get(2)) {
 						check = true;
+						break;
 					}
 					if(x-1 == answer.get(j).get(0) && y == answer.get(j).get(1) && 1 == answer.get(j).get(2)) {
 						left = true;
@@ -81,6 +89,7 @@ public class Dongbin_12 {
 					if(x+1 == answer.get(j).get(0) && y == answer.get(j).get(1) && 1 == answer.get(j).get(2)) {
 						right = true;
 					}
+					if(check || (left && right))	break;
 				}
 				if(right && left)	check = true;
 				if(!check)	return false;
@@ -103,6 +112,7 @@ public class Dongbin_12 {
 				for(int j=0; j<answer.size(); j++) {
 					if(x == answer.get(j).get(0) && y == answer.get(j).get(1) && stuff == answer.get(j).get(2)) {
 						index = j;
+						break;
 					}
 				}
 				ArrayList<Integer> erased = answer.get(index);
