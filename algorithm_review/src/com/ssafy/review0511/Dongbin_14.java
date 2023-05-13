@@ -60,11 +60,11 @@ public class Dongbin_14 {
 			Permutation perm = new Permutation(dist.length, dist.length);
 			perm.permutation(dist, 0);
 			ArrayList<ArrayList<Integer>> distList = perm.getResult();
-			for(int start = 0; start < weak.length; start++) {
-				for(int i=0; i<distList.size(); i++) {
+			for(int start = 0; start < weak.length; start++) {// 하나의 시작점에서
+				for(int i=0; i<distList.size(); i++) {	//친구들을 줄 세운 모든 경우의 수를 돌린다.
 					int cnt = 1;
 					int position = weakList.get(start) + distList.get(i).get(cnt-1);
-					for(int index = start; index < start+weak.length; index++) {
+					for(int index = start; index < start+weak.length; index++) {	// 하나의 시작점에서 n번 크기의 한 바퀴를 돌 수 있는 지 확인한다.
 						if(position < weakList.get(index)) {
 							cnt+=1;
 							if(cnt > dist.length) {
