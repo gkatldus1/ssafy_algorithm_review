@@ -46,7 +46,7 @@ public class BJ_14888 {
 		n = sc.nextInt();
 		
 		for(int i=0; i<n; i++) {
-			int x= sc.nextInt();
+			int x = sc.nextInt();
 			arr.add(x);
 		}
 		
