@@ -69,6 +69,8 @@ public class BJ_14502 {
 					arr[i][j] = 0;
 					count -= 1;
 				}
+				
+				
 			}
 		}
 	}
