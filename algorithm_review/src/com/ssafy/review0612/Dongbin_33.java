@@ -28,6 +28,4 @@ public class Dongbin_33 {
 		}
 		System.out.println(maxValue);
 	}
-	
-	
 }
