@@ -36,7 +36,7 @@ public class Dongbin_39 {
 	}
 	public static final int INF = (int) 1e9;
 	public static int[][] graph = new int[125][125];
-	public static int[][] d=  new int[125][125];
+	public static int[][] d =  new int[125][125];
 	public static int testCase, n;
 	public static int[] dx = {-1,0,1,0};
 	public static int[] dy = {0,1,0,-1};
