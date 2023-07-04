@@ -48,6 +48,7 @@ public class Dongbin_41 {
 		for(int i=0; i<m-1; i++) {
 			if(findParent(plan.get(i))!= findParent(plan.get(i+1))) {
 				result = false;
+				break;
 			}
 		}
 		
