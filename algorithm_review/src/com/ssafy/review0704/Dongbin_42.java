@@ -22,10 +22,9 @@ public class Dongbin_42 {
 	
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		g = Integer.parseInt(st.nextToken());
-		p = Integer.parseInt(st.nextToken());
+		g = Integer.parseInt(br.readLine());
+		p = Integer.parseInt(br.readLine());
 		
 		for(int i=1; i<=g; i++) {
 			parent[i] = i;
