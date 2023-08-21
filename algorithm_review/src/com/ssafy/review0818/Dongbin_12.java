@@ -1,6 +1,7 @@
 package com.ssafy.review0818;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Dongbin_12 {
 
@@ -91,6 +92,60 @@ public class Dongbin_12 {
             }
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        int[][] buildFrame = {{1,0,0,1},{1,1,1,1},{2,1,0,1},{2,2,1,1},{5,0,0,1},{5,1,0,1},{4,2,1,1},{3,2,1,1}};
+
+        ArrayList<ArrayList<Integer>> arrayList = new ArrayList<>();
+        for (int i = 0; i < buildFrame.length; i++) {
+            int x = buildFrame[i][0];
+            int y = buildFrame[i][1];
+            int stuff = buildFrame[i][2];
+            int operate = buildFrame[i][3];
+
+            if (operate == 0) { //삭제하는 경우
+                int index = 0;
+                for (int j = 0; j < arrayList.size(); j++) {
+                    int k = arrayList.get(j).get(0);
+                    int l = arrayList.get(j).get(1);
+                    int m = arrayList.get(j).get(2);
+                    if(k == x && y == l && m == stuff){
+                        index = j;
+                        break;
+                    }
+                }
+                System.out.println(index);
+                ArrayList<Integer> erased = arrayList.get(index);
+                arrayList.remove(index);
+                if(!possible(arrayList)) arrayList.add(erased);
+
+            }
+
+            else if(operate == 1){  //설치하는경우
+                ArrayList<Integer> inserted = new ArrayList<>();
+                inserted.add(x);
+                inserted.add(y);
+                inserted.add(stuff);
+
+                arrayList.add(inserted);
+                if(!possible(arrayList)) arrayList.remove(arrayList.size() - 1);
+            }
+
+
+        }
+
+        ArrayList<Node> answer = new ArrayList<Node>();
+        for (int i = 0; i < arrayList.size(); i++) {
+            answer.add(new Node(arrayList.get(i).get(0), arrayList.get(i).get(1), arrayList.get(i).get(2)));
+        }
+        Collections.sort(answer);
+
+        for (int i = 0; i < answer.size(); i++) {
+            Node now = answer.get(i);
+            System.out.print(now.x +" "+now.y+" "+now.z);
+            System.out.println();
+        }
     }
 
 
