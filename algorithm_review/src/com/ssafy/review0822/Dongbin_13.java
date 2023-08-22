@@ -1,5 +1,7 @@
 package com.ssafy.review0822;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.*;
 public class Dongbin_13 {
 
@@ -59,6 +61,52 @@ public class Dongbin_13 {
         public int getC() {
             return c;
         }
+    }
+
+
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
+
+        ArrayList<Position> home = new ArrayList<>();
+        ArrayList<Position> chicken = new ArrayList<>();
+
+        for (int i = 0; i < N; i++) {
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < N; j++) {
+                int cur = Integer.parseInt(st.nextToken());
+                if(cur == 1) home.add(new Position(i, j));
+                if(cur == 2) chicken.add(new Position(i, j));
+            }
+        }
+
+        Combination comb = new Combination(chicken.size(), M);
+        comb.combination(chicken, 0, 0, 0);
+
+        ArrayList<ArrayList<Position>> chickens = comb.getResult();
+
+        int min = Integer.MAX_VALUE;
+
+        for (int i = 0; i < home.size(); i++) {
+            Position nowHouse = home.get(i);
+
+            for (int j = 0; j < chickens.size(); j++) {
+                ArrayList<Position> temp = chickens.get(j);
+                int result = 0;
+                for (int k = 0; k < temp.size(); k++) {
+                    result += Math.abs(nowHouse.getR() - temp.get(k).getR()) + Math.abs(nowHouse.getC() - temp.get(k).getC());
+
+                }
+                min = Math.min(min, result);
+            }
+
+        }
+        System.out.println(min);
+
+
     }
 
 
