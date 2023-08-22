@@ -115,7 +115,6 @@ public class Dongbin_12 {
                         break;
                     }
                 }
-                System.out.println(index);
                 ArrayList<Integer> erased = arrayList.get(index);
                 arrayList.remove(index);
                 if(!possible(arrayList)) arrayList.add(erased);
