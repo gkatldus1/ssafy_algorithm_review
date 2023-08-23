@@ -64,6 +64,24 @@ public class Dongbin_13 {
     }
 
 
+    static int getSum(ArrayList<Position> candidates, ArrayList<Position> house) {
+        int result = 0;
+
+        for (int i = 0; i < house.size(); i++) {
+            int hx = house.get(i).getR();
+            int hy = house.get(i).getC();
+
+            int temp = (int) 1e9;
+            for (int j = 0; j < candidates.size(); j++) {
+                int cx = candidates.get(j).getR();
+                int cy = candidates.get(j).getC();
+                temp = Math.min(temp, Math.abs(hx - cx) + Math.abs(hy - cy));
+            }
+            result += temp;
+        }
+        return result;
+    }
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -90,19 +108,9 @@ public class Dongbin_13 {
 
         int min = Integer.MAX_VALUE;
 
-        for (int i = 0; i < home.size(); i++) {
-            Position nowHouse = home.get(i);
-
-            for (int j = 0; j < chickens.size(); j++) {
-                ArrayList<Position> temp = chickens.get(j);
-                int result = 0;
-                for (int k = 0; k < temp.size(); k++) {
-                    result += Math.abs(nowHouse.getR() - temp.get(k).getR()) + Math.abs(nowHouse.getC() - temp.get(k).getC());
-
-                }
-                min = Math.min(min, result);
-            }
-
+        for (int i = 0; i < chickens.size(); i++) {
+            int cur = getSum(chickens.get(i), home);
+            min = Math.min(min, cur);
         }
         System.out.println(min);
 
