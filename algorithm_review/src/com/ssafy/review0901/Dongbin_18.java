@@ -67,7 +67,7 @@ public class Dongbin_18 {
 
         String p = br.readLine();
 
-        
+
         System.out.println(solution(p));
 
 
