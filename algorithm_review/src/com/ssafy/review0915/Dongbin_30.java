@@ -5,7 +5,7 @@ import java.util.*;
 class Dongbin_30 {
 
     public int lowerBound(ArrayList<String> arr, String target, int start, int end) {
-        while (start < end) {
+        while (start < end) {   // start 와 end 가 같아져서 mid가 end 값이 될때 리턴될 수 있음. 트라이와 다른 개념으로 찾는 방법
             int mid = (start + end) / 2;
             // arr[mid]가 target보다 사전순으로 같거나 뒤에 있다면
             if (arr.get(mid).compareTo(target) >= 0) end = mid;
